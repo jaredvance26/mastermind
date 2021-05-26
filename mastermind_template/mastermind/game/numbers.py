@@ -7,27 +7,25 @@ class Numbers:
         # print(self.code)
 
     def get_hint(self, guess):
-        pass
-
-    def compare(self, guess):
         guess = str(guess)
         self.code = str(self.code)
-        output = []
+        self.output = []
 
         for index, number in enumerate(guess):
             if number == self.code[index]:
-                output.append('x')
+                self.output.append('x')
             elif number in self.code:
-                output.append('o')
+                self.output.append('o')
             else:
-                output.append('*')
-        return output
+                self.output.append('*')
             
-                
-    # def _prepare(self):
-    #     for i in range(4):
-    #         code = random.randint(1, 9)
-    #         self.code.append(code)
+    def winner(self):
+        won = ['x', 'x', 'x', 'x']
+        if self.output == won:
+            return True
+
+        won = ['x'] * len(self.output)
+        return self.code == won
 
 number = Numbers()
 guess = '1234'
