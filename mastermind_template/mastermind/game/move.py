@@ -14,7 +14,8 @@ class Move:
         Args:
             self (Board): an instance of Board.
         """
-        self.guess = guess
+        self._guess = guess
+        self._answer = answer
 
     def get_guess(self):
         """Returns the pile to remove from.
@@ -23,3 +24,7 @@ class Move:
             self (Move): an instance of Move.
         """
         return self._guess
+
+    def get_answer(self):
+        
+        return self._answer

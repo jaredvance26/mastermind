@@ -20,12 +20,12 @@ class Numbers:
                 self.output.append('*')
             
     def winner(self):
-        won = ['x', 'x', 'x', 'x']
-        if self.output == won:
-            return True
-
         won = ['x'] * len(self.output)
         return self.code == won
+
+    def display(self, player, guess):
+        print('-----------------')
+        output = (''.join(self.output))
 
 number = Numbers()
 guess = '1234'
