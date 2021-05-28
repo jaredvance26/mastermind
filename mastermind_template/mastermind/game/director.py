@@ -3,6 +3,9 @@ from game.move import Move
 from game.numbers import Numbers
 from game.player import Player
 from game.roster import Roster 
+import os
+from colorama import Fore,Back,Style
+
 class Director:
     def __init__(self):
         self.numbers = Numbers()
@@ -26,10 +29,11 @@ class Director:
             self.roster.add_player(player)
 
     def get_inputs(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
         current_player = self.roster.get_current()
         Board = self.numbers.board(self.roster.players[0], self.roster.players[1])
         self.console.write(Board)
-        Guess = self.console.read(f"{current_player.get_name()} What is your Guess? ")
+        Guess = self.console.read(f"{Fore.MAGENTA}{current_player.get_name()}{Style.RESET_ALL} What is your Guess? ")
         Answer = self.numbers.get_hint(Guess)
         move = Move(Guess,Answer)
         current_player.set_move(move)

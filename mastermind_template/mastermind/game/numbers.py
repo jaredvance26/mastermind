@@ -1,4 +1,6 @@
 import random
+from colorama import Fore,Back,Style
+
 class Numbers:
     """ Create and generate random code. Takes in a guess and compares. """
 
@@ -13,11 +15,11 @@ class Numbers:
 
         for index, number in enumerate(guess):
             if number == self.code[index]:
-                self.output.append('x')
+                self.output.append(f'{Fore.GREEN}x{Style.RESET_ALL}')
             elif number in self.code:
-                self.output.append('o')
+                self.output.append(f'{Fore.YELLOW}o{Style.RESET_ALL}')
             else:
-                self.output.append('*')
+                self.output.append(f'{Fore.RED}*{Style.RESET_ALL}')
         return (''.join(self.output))
             
     def winner(self):
@@ -29,7 +31,7 @@ class Numbers:
 
     def board(self, player1, player2):
         text = ('\n---------')
-        text += (f'\nPlayer {player1.get_name()}: {player1.get_move().get_guess()}, {player1.get_move().get_answer()} ')
-        text += (f'\nPlayer {player2.get_name()}: {player2.get_move().get_guess()}, {player2.get_move().get_answer()}')
+        text += (f'\nPlayer {Fore.MAGENTA}{player1.get_name()}{Style.RESET_ALL}: {player1.get_move().get_guess()}, {player1.get_move().get_answer()} ')
+        text += (f'\nPlayer {Fore.MAGENTA}{player2.get_name()}{Style.RESET_ALL}: {player2.get_move().get_guess()}, {player2.get_move().get_answer()}')
         text += ('\n--------')
         return text
