@@ -4,7 +4,7 @@ class Numbers:
 
     def __init__(self):
         self.code = random.randint(1000, 9999)
-        # print(self.code)
+        self.output = '****'
 
     def get_hint(self, guess):
         guess = str(guess)
@@ -18,16 +18,16 @@ class Numbers:
                 self.output.append('o')
             else:
                 self.output.append('*')
+        return (''.join(self.output))
             
     def winner(self):
         won = ['x'] * len(self.output)
         return self.code == won
 
-    def display(self, player, guess):
-        print('-----------------')
-        output = (''.join(self.output))
+    def board(self, player1, player2):
+        text = ('\n---------')
+        text += (f'\nPlayer {player1.get_name()}: {player1.get_move.get_guess()}, {player1.get_move.get_answer()} ')
+        text += (f'\nPlayer {player2.get_name()}: {player2.get_move.get_guess()}, {player2.get_move.get_answer()}')
+        text += ('\n--------')
 
-number = Numbers()
-guess = '1234'
-
-number.compare(guess)
+        return text
