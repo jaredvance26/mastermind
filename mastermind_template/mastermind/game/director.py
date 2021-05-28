@@ -4,7 +4,27 @@ from game.numbers import Numbers
 from game.player import Player
 from game.roster import Roster 
 class Director:
+    """A code template for a person who directs the game. The responsibility of 
+    this class of objects is to control the sequence of play.
+    
+    Stereotype:
+        Controller
+
+    Attributes:
+        numbers (Numbers): An instance of the class of objects known as Numbers.
+        console (Console): An instance of the class of objects known as Console.
+        keep_playing (boolean): Whether or not the game can continue.
+        move (player): An instance of the class of objects known as Move.
+        roster (player): An instance of the class of objects known as Roster.
+
+    """
+    
     def __init__(self):
+        """ The class constructor.
+        
+        Args:
+            self (Director): an instance of Director.       
+        """
         self.numbers = Numbers()
         self.roster = Roster()
         self._keep_playing = True
@@ -12,12 +32,22 @@ class Director:
         self.console = Console()
 
     def start_game(self):
+        """Starts the game loop to control the sequence of play.
+        
+        Args:
+            self (Director): an instance of Director.
+        """
         self.prepare_game()
         while self._keep_playing:
             self.get_inputs()
             self.get_outputs()
 
     def prepare_game(self):
+        """Prepares the game before it begins. In this case, that means getting the player names and adding them to the roster.
+        
+        Args:
+            self (Director): An instance of Director.
+        """
         self.guess = '----'
         for n in range(2):
             name = self.console.read(f'Enter name for player {n+1}: ')
@@ -26,6 +56,12 @@ class Director:
             self.roster.add_player(player)
 
     def get_inputs(self):
+        """Gets the inputs at the beginning of each round of play. In this case,
+        that means getting the move from the current player.
+
+        Args:
+            self (Director): An instance of Director.
+        """
         current_player = self.roster.get_current()
         Board = self.numbers.board(self.roster.players[0], self.roster.players[1])
         self.console.write(Board)
