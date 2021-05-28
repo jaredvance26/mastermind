@@ -7,13 +7,13 @@ class Director:
     def __init__(self):
         self.numbers = Numbers()
         self.roster = Roster()
-        self.keep_playing = True
+        self._keep_playing = True
         self.move = None
         self.console = Console()
 
     def start_game(self):
         self.prepare_game()
-        while self.keep_playing:
+        while self._keep_playing:
             self.get_inputs()
             self.get_updates()
             self.get_outputs()
@@ -27,11 +27,28 @@ class Director:
             self.roster.add_player(player)
 
     def get_inputs(self):
-        self.numbers.board(self.roster.players[0], self.roster.players[1])
-        joe = input("Enter In a word")
+        current_player = self.roster.get_current()
+        Board = self.numbers.board(self.roster.players[0], self.roster.players[1])
+        self.console.write(Board)
+        Guess = self.console.read(f"{current_player.get_name()} What is your Guess? ")
+        Answer = self.numbers.get_hint(Guess)
+        move = Move(Guess,Answer)
+        current_player.set_move(move)
 
     def get_updates(self):
         pass
-    
+
     def get_outputs(self):
-        pass
+        """Outputs the important game information for each round of play. In 
+        this case, that means checking if there are stones left and declaring the winner.
+
+        Args:
+            self (Director): An instance of Director.
+        """
+        
+        if self.numbers.winner():
+            winner = self.roster.get_current()
+            name = winner.get_name()
+            print(f"\n{name} won!")
+            self._keep_playing = False
+        self.roster.next_player()

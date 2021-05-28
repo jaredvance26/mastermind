@@ -7,14 +7,14 @@ class Move:
     Attributes:
         
     """
-    def __init__(self):
+    def __init__(self, guess="----", answer="****"):
         """The class constructor.
         
         Args:
             self (Board): an instance of Board.
         """
-        self._guess = '----'
-        self._answer = '****'
+        self._guess = guess
+        self._answer = answer
 
     def get_guess(self):
         """Returns the pile to remove from.
