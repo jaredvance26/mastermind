@@ -5,7 +5,6 @@ class Numbers:
     def __init__(self):
         self.code = random.randint(1000, 9999)
         self.output = '****'
-        print(self.code)
 
     def get_hint(self, guess):
         guess = str(guess)

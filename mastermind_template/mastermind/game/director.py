@@ -15,7 +15,6 @@ class Director:
         self.prepare_game()
         while self._keep_playing:
             self.get_inputs()
-            self.get_updates()
             self.get_outputs()
 
     def prepare_game(self):
@@ -34,9 +33,6 @@ class Director:
         Answer = self.numbers.get_hint(Guess)
         move = Move(Guess,Answer)
         current_player.set_move(move)
-
-    def get_updates(self):
-        pass
 
     def get_outputs(self):
         """Outputs the important game information for each round of play. In 
