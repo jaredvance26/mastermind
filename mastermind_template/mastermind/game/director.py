@@ -10,12 +10,14 @@ class Director:
         self.keep_playing = True
         self.move = None
         self.console = Console()
+
     def start_game(self):
         self.prepare_game()
         while self.keep_playing:
             self.get_inputs()
             self.get_updates()
             self.get_outputs()
+
     def prepare_game(self):
         self.guess = '----'
         for n in range(2):
@@ -23,10 +25,13 @@ class Director:
             player = Player(name)
             player.set_move(Move())
             self.roster.add_player(player)
+
     def get_inputs(self):
         self.numbers.board(self.roster.players[0], self.roster.players[1])
         joe = input("Enter In a word")
+
     def get_updates(self):
         pass
+    
     def get_outputs(self):
         pass

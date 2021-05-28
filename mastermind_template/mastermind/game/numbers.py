@@ -26,8 +26,8 @@ class Numbers:
 
     def board(self, player1, player2):
         text = ('\n---------')
-        text += (f'\nPlayer {player1.get_name()}: {player1.get_move.get_guess()}, {player1.get_move.get_answer()} ')
-        text += (f'\nPlayer {player2.get_name()}: {player2.get_move.get_guess()}, {player2.get_move.get_answer()}')
+        text += (f'\nPlayer {player1.get_name()}: {player1.get_move().get_guess()}, {player1.get_move().get_answer()} ')
+        text += (f'\nPlayer {player2.get_name()}: {player2.get_move().get_guess()}, {player2.get_move().get_answer()}')
         text += ('\n--------')
 
         return text
