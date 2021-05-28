@@ -25,6 +25,6 @@ class Move:
         return self._guess
 
     def get_answer(self):
-         """ Returns the answer"""
+        """ Returns the answer"""
         
         return self._answer
