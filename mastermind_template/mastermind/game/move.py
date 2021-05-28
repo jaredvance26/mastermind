@@ -1,5 +1,5 @@
 class Move:
-    """A maneuver in the game. The responsibility of Move is to keep track of the stones to remove and which pile to remove them from.
+    """A maneuver in the game. The responsibility of Move is to keep track of the guesses
     
     Stereotype: 
         Information Holder
@@ -17,7 +17,7 @@ class Move:
         self._answer = answer
 
     def get_guess(self):
-        """Returns the pile to remove from.
+        """Returns the guess of the user
 
         Args:
             self (Move): an instance of Move.
@@ -25,6 +25,6 @@ class Move:
         return self._guess
 
     def get_answer(self):
-    
+         """ Returns the answer"""
         
         return self._answer
