@@ -30,8 +30,16 @@ root                    (project root folder)
 ## Required Technologies
 ---
 * Python 3.8.0
+* Colorama
+* OS
 
 ## Authors
 ---
 
 Jared Vance, jaredkvance@gmail.com
+
+Brandon Densmore, den18017@byui.edu
+
+Shandler Rechenberger, ShanRechenberger@gmail.com
+
+Alex Mudaliar, awsmudaliar@outlook.com
