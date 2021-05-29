@@ -30,7 +30,7 @@ class Numbers:
             
     def winner(self):
         """Determines if the game is won by a player. """
-        won = ['x'] * len(self.output)
+        won = [f'{Fore.GREEN}x{Style.RESET_ALL}'] * len(self.output)
         if won == self.output:
             return True
         else:
